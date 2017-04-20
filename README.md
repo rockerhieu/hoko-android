@@ -2,7 +2,8 @@
 <img src="https://s3-eu-west-1.amazonaws.com/hokoassets/hoko_logo.png" alt="HOKO" title="HOKO">
 </p>
 
-[![Build Status](https://travis-ci.org/hokolinks/hoko-android.svg?branch=open_source)](https://travis-ci.org/hokolinks/hoko-android)
+[![Download](https://api.bintray.com/packages/hoko/maven/hoko-android/images/download.svg)](https://bintray.com/hoko/maven/hoko-android/_latestVersion)
+[![Build Status](https://travis-ci.org/hoko/hoko-android.svg?branch=open_source)](https://travis-ci.org/hoko/hoko-android)
 
 # Quick Start - HOKO for Android
 
@@ -18,7 +19,7 @@ Add HOKO to your `gradle.build` file:
 ```java
 // Build.gradle
 dependencies {
-	compile 'com.hokolinks:hoko:2.2.2'
+	compile 'com.hokolinks:hoko:2.3.2'
 }
 ```
 
