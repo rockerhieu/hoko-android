@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -27,6 +28,7 @@ import com.hokolinks.utils.log.HokoLog;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -329,7 +331,9 @@ public class AnnotationParser {
                         for (String key : hokoIntentRoute.getRouteParameters().keySet()) {
                             Field field = hokoIntentRoute.getRouteParameters().get(key);
                             String parameter = routeParametersBundle.getString(key);
-                            if (parameter == null
+                            Annotation nullableAnnotation = field.getAnnotation(Nullable.class);
+                            boolean isNullableField = nullableAnnotation instanceof Nullable;
+                            if ((!isNullableField && parameter == null)
                                 || !setValueForField(field, object, parameter, true))
                                 return false;
                         }
